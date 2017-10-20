@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My javascript practise</title>
+    <title>etvoila's Gaming Station</title>
   </head>
+  <style type="text/css">
+    #memoryBoard{
+      border:#999 1px solid;
+      width:800px;
+      height:540px;
+      padding:24px;
+      margin:0;
+    }
+    div#memoryBoard > div {
+      background-color: white;
+      border:#000 1px solid;
+      width:71px;
+      height:71px;
+      float:left;
+      margin:10px;
+      padding:20px;
+    }
+  </style>
 
   <body>
-    <p>
-      hello
-    </p>
-    <!-- <script src="test.js"></script> -->
-
+    <div id='memoryBoard'>
+    </div>
   </body>
+  <script src='cards.js'></script>
+  <script src='main.js'></script>
 </html>
