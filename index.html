@@ -4,28 +4,49 @@
     <title>etvoila's Gaming Station</title>
   </head>
   <style type="text/css">
-    #memoryBoard{
-      border:#999 1px solid;
-      width:800px;
-      height:540px;
-      padding:24px;
-      margin:0;
+    html, body {
+      background-color: #0000;
+      overflow: hidden;
+      height: 100%;
     }
-    div#memoryBoard > div {
-      background-color: white;
-      border:#000 1px solid;
-      width:71px;
-      height:71px;
-      float:left;
-      margin:10px;
-      padding:20px;
+
+    canvas {
+      border: 1px solid black;
+      margin: auto;
+      padding: 0;
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      visibility: visible;
+    }
+
+    #wrapper {
+      text-align: center;
+      margin-right: 3%;
+    }
+    button {
+      position: absolute;
+      top: 55%;
+      visibility: hidden;
     }
   </style>
-
+  <script src='tile.js'></script>
+  <script src='board.js'></script>
   <body>
-    <div id='memoryBoard'>
+
+    <canvas id='canvas' width="670" height="670">
+    </canvas>
+    <div id='wrapper'>
+      <button id='button1' onclick="buttonClicked();"></button>
     </div>
+
+
+
   </body>
-  <script src='cards.js'></script>
+
+
   <script src='main.js'></script>
 </html>

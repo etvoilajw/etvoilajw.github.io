@@ -12,9 +12,13 @@ function flipTile(tile) {
     }
 };
 
-function initialShow(tile) {
-  for(var i =0;i<jackpotArray.length;i++) {
+function close(tile) {
+  tile.style.background = 'white';
+};
 
+function initialShow() {
+  for(var i =0;i<jackpotArray.length;i++) {
+    setTimeout(document.getElementById('tile'+jackpotArray[i]).close(),300);
   }
 };
 
