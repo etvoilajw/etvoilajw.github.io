@@ -26,7 +26,7 @@ Board = function(row, col, jpNum) {
     this.newBoard();
     this.draw(ctx);
     this.initialDisplay();
-    setTimeout(function(){board.draw(ctx);}, 1000);
+    setTimeout(function(){board.draw(ctx);}, 800);
   };
 
 

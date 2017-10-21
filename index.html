@@ -22,6 +22,10 @@
       right: 0;
       visibility: visible;
     }
+    #header {
+      text-align: center;
+      
+    }
 
     #wrapper {
       text-align: center;
@@ -32,6 +36,7 @@
       top: 55%;
       visibility: hidden;
     }
+
   </style>
   <script src='tile.js'></script>
   <script src='board.js'></script>
@@ -39,6 +44,11 @@
 
     <canvas id='canvas' width="670" height="670">
     </canvas>
+    <div id="header">
+      <h1><strong>Memory Game</strong></h1>
+      <p>Memorize and find red tiles!</p>
+    </div>
+
     <div id='wrapper'>
       <button id='button1' onclick="buttonClicked();"></button>
     </div>
