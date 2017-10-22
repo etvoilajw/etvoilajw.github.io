@@ -9,6 +9,7 @@ Tile = function(x,y,w,h,id) {
   this.revealed = false;
 
   this.flipTile = function() {
+    if(canvas.style.zIndex == 1){
       if(this.jackpot) {
         this.color = "red";
         this.revealed = true;
@@ -50,6 +51,7 @@ Tile = function(x,y,w,h,id) {
         document.getElementById('inGameButton').style.visibility = 'visible';
         canvas.style.zIndex = "-1";
       }
+    }
   };
 
 

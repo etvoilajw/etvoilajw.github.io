@@ -39,10 +39,10 @@ function stageSelected(num) {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
   board.newBoard();
   document.getElementById('inGameButton').innerHTML = 'Begin';
-  document.getElementById('inGameButton').style.top = '48.3%';
+  document.getElementById('inGameButton').style.top = null;
   document.getElementById('inGameButton').style.visibility = 'visible';
 };
 
-ctx.canvas.addEventListener("click",function(e){board.tileClicked(e.clientX - ctx.canvas.offsetLeft, e.clientY - ctx.canvas.offsetTop);}, false);
+ctx.canvas.addEventListener("click",function(e){board.tileClicked(e.clientX - document.getElementById('canvasDiv').getBoundingClientRect().left, e.clientY - document.getElementById('canvasDiv').getBoundingClientRect().top);}, false);
 
 board.newBoard();
