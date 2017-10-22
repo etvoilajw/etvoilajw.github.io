@@ -22,14 +22,16 @@ Board = function(row, col, jpNum) {
   this.start = function() {
     ctx.fillStyle = 'rgb(255,255,255)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    canvas.style.zIndex = "1";
     this.newBoard();
     this.draw(ctx);
     this.initialDisplay();
     setTimeout(function(){board.draw(ctx);}, 800);
+    setTimeout(function(){board.clickable();}, 800);
   };
 
-
+  this.clickable = function() {
+    canvas.style.zIndex = '1';
+  };
 
   this.newBoard = function(){
     var currentRow = 0;
@@ -40,17 +42,20 @@ Board = function(row, col, jpNum) {
       this.tileArray[i] = new Tile((this.width / col) * (i % col), (this.height/ row) * currentRow,this.width / col,this.height/ row, i);
     }
     this.jackpotArray = this.tileArray.generateJackpots(jpNum);
-
+    this.draw(ctx);
     for(var i=0; i<this.jackpotArray.length;i++) {
       this.jackpotArray[i].jackpot = true;
       this.jackpotArray[i].color = 'red';
     }
+
+
   };
 
   this.draw = function(ctx) {
     for(var i = 0; i<this.tileArray.length;i++) {
       this.tileArray[i].draw(ctx);
     }
+    canvas.style.zIndex = "-1";
 
   };
 

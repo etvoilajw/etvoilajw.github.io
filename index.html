@@ -9,7 +9,15 @@
       overflow: hidden;
       height: 100%;
     }
+    .canvas {
+      float: left;
+      width: 670px;
+      height:670px;
+    }
 
+    .content {
+      display: inline;
+    }
     canvas {
       border: 1px solid black;
       margin: auto;
@@ -24,34 +32,82 @@
     }
     #header {
       text-align: center;
-      
+
     }
 
     #wrapper {
-      text-align: center;
-      margin-right: 3%;
+      align-content: center;
+      margin-left: 46.5%;
     }
-    button {
+    #inGameButton {
+      width: 100px;
+      height: 30px;
       position: absolute;
-      top: 55%;
-      visibility: hidden;
+      top: 48.3%;
+      visibility: visible;
+      text-align: center;
+    }
+
+    .stages {
+      margin: 3px;
+      width: 100px;
+      height: 100px;
+      border-radius: 5px;
+      background-color: #cccccc;
+
+    }
+
+    .buttonContainer {
+      float:left;
+      margin-left: 5%;
+      width: 350px;
     }
 
   </style>
   <script src='tile.js'></script>
   <script src='board.js'></script>
   <body>
-
-    <canvas id='canvas' width="670" height="670">
-    </canvas>
     <div id="header">
       <h1><strong>Memory Game</strong></h1>
-      <p>Memorize and find red tiles!</p>
+      <p>Memorize and find all red tiles!</p>
     </div>
 
-    <div id='wrapper'>
-      <button id='button1' onclick="buttonClicked();"></button>
+    <div class="content">
+
+      <div class='buttonContainer'>
+        <h2 style='text-align:center;'><strong>Select stages</strong></h2>
+        <div>
+          <button class='stages' id='stage1' disabled onclick='stageSelected(0);'>1</button>
+          <button class='stages' id='stage2' disabled onclick='stageSelected(1);'>2</button>
+          <button class='stages' id='stage3' disabled onclick='stageSelected(2);'>3</button>
+        </div>
+        <div>
+          <button class='stages' id='stage4' disabled onclick='stageSelected(3);'>4</button>
+          <button class='stages' id='stage5' disabled onclick='stageSelected(4);'>5</button>
+          <button class='stages' id='stage6' disabled onclick='stageSelected(5);'>6</button>
+        </div>
+        <div>
+          <button class='stages' id='stage7' disabled onclick='stageSelected(6);'>7</button>
+          <button class='stages' id='stage8' disabled onclick='stageSelected(7);'>8</button>
+          <button class='stages' id='stage9' disabled onclick='stageSelected(8);'>9</button>
+        </div>
+        <div>
+          <button class='stages' id='stage10' disabled onclick='stageSelected(9);'>10</button>
+          <button class='stages' id='stage11' disabled onclick='stageSelected(10);'>11</button>
+          <button class='stages' id='stage12' disabled onclick='stageSelected(11);'>12</button>
+        </div>
+
+      </div>
+
+      <div class='canvas'>
+        <canvas id='canvas' width="670" height="670">
+        </canvas>
+        <div id='wrapper'>
+          <button id='inGameButton' onclick="buttonClicked();">Begin</button>
+        </div>
+      </div>
     </div>
+
 
 
 

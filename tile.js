@@ -18,11 +18,23 @@ Tile = function(x,y,w,h,id) {
           ctx.fillRect(0, 0, canvas.width, canvas.height);
           ctx.font = "50px arial";
           ctx.fillStyle = 'rgb(0,0,0)';
-          ctx.fillText("Stage Clear!", canvas.width /3, canvas.height/2)
+          if(currentStage < stages.length - 1){
+            ctx.fillText("Stage Clear!", canvas.width /3, canvas.height/2)
+            document.getElementById('stage'+(currentStage+1)).disabled = false;
+            document.getElementById('inGameButton').innerHTML = 'Next Stage';
+            document.getElementById('inGameButton').style.top = '55%';
+            document.getElementById('inGameButton').style.visibility = 'visible';
+            canvas.style.zIndex = "-1";
+          }
+          else {
+            ctx.fillText("Game Clear!", canvas.width /3, canvas.height/2)
 
-          document.getElementById('button1').innerHTML = 'Next Stage';
-          document.getElementById('button1').style.visibility = 'visible';
-          canvas.style.zIndex = "-1";
+            document.getElementById('inGameButton').innerHTML = 'Restart';
+            document.getElementById('inGameButton').style.top = '55%';
+            document.getElementById('inGameButton').style.visibility = 'visible';
+            canvas.style.zIndex = "-1";
+          }
+
         }
       }
       else {
@@ -33,8 +45,9 @@ Tile = function(x,y,w,h,id) {
         ctx.fillStyle = 'rgb(0,0,0)';
         ctx.fillText("Game Over!", canvas.width /3, canvas.height/2);
 
-        document.getElementById('button1').innerHTML = 'Restart';
-        document.getElementById('button1').style.visibility = 'visible';
+        document.getElementById('inGameButton').innerHTML = 'Retry';
+        document.getElementById('inGameButton').style.top = '55%';
+        document.getElementById('inGameButton').style.visibility = 'visible';
         canvas.style.zIndex = "-1";
       }
   };
