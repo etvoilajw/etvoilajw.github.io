@@ -4,18 +4,21 @@
 html, body {
   margin : 0;
   height: 100%;
-  background-image: url("../img/backgroundimage.jpg");
+  background-image: url("../img/backgroundimage.png");
+  background-size: cover;
 }
 h1 {
   margin: 0;
   text-align: center;
   border: 1px black solid;
 }
+
 .content {
   margin: auto;
   width: 70%;
   height: inherit;
-  background-color: white;
+  background: url("../img/contentbackground.png");
+  background-size: cover;
 }
 .side-tab {
   height: 100%;
@@ -25,6 +28,7 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 4fr;
   height: 95%;
+  opacity: 1;
 }
 .game-table {
   display: grid;
