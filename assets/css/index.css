@@ -1,0 +1,48 @@
+
+/*CSS for index.html*/
+
+html, body {
+  margin : 0;
+  height: 100%;
+  background-image: url("../img/backgroundimage.jpg");
+}
+h1 {
+  margin: 0;
+  text-align: center;
+  border: 1px black solid;
+}
+.content {
+  margin: auto;
+  width: 70%;
+  height: inherit;
+  background-color: white;
+}
+.side-tab {
+  height: 100%;
+  border: 1px solid black;
+}
+.inner-content{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 95%;
+}
+.game-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin: 1em;
+}
+
+.table-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+img {
+  border: 1px solid black;
+  width:100%;
+  height: auto;
+}

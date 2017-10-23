@@ -1,0 +1,92 @@
+
+/*CSS for Memorygame page*/
+
+html, body {
+  background-color: #0000;
+  overflow: hidden;
+  height: 100%;
+}
+#canvasDiv {
+  width: 670px;
+  height:670px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 3.5fr;
+  grid-gap: 1px;
+  justify-items:center;
+}
+canvas {
+  border: 1px solid black;
+
+}
+#header {
+  text-align: center;
+}
+
+#inGameButton {
+  border-radius: 15px;
+  position: absolute;
+  visibility: visible;
+  text-align: center;
+  display: block;
+}
+.wrapper {
+  justify-self:start;
+}
+.buttonContainer {
+  display: grid;
+  width: 350px;
+  grid-template-columns: 1fr;
+  justify-self:center;
+}
+
+.buttonGrid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.stageButton {
+  background: #7dcbff;
+  background-image: -webkit-linear-gradient(top, #7dcbff, #1a8ed6);
+  background-image: -moz-linear-gradient(top, #7dcbff, #1a8ed6);
+  background-image: -ms-linear-gradient(top, #7dcbff, #1a8ed6);
+  background-image: -o-linear-gradient(top, #7dcbff, #1a8ed6);
+  background-image: linear-gradient(to bottom, #7dcbff, #1a8ed6);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+:disabled {
+  background: rgba(173,189,199,0.9);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.stageButton:hover {
+  background: #3c8fc2;
+  background-image: -webkit-linear-gradient(top, #3c8fc2, #84cbfa);
+  background-image: -moz-linear-gradient(top, #3c8fc2, #84cbfa);
+  background-image: -ms-linear-gradient(top, #3c8fc2, #84cbfa);
+  background-image: -o-linear-gradient(top, #3c8fc2, #84cbfa);
+  background-image: linear-gradient(to bottom, #3c8fc2, #84cbfa);
+  text-decoration: none;
+}
