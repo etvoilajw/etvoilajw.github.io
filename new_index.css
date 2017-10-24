@@ -1,0 +1,151 @@
+
+/*CSS for index.html*/
+
+html, body {
+  margin : 0;
+  height: 100%;
+  background-image: url("../img/backgroundimage.png");
+  background-size: cover;
+  overflow: hidden;
+}
+h1 {
+  margin: 0;
+  text-align: center;
+  color: white;
+  padding:30px;
+}
+
+p {
+  color: white;
+  text-align: center;
+}
+
+.content {
+  position: relative;
+  min-height:100%;
+  padding-bottom:19px;
+  display: grid;
+  grid-gap: 0;
+  margin: auto;
+  width: 70%;
+  height: inherit;
+  background: url("../img/contentbackground.png");
+  background-size: cover;
+  overflow-y:  auto;
+}
+
+#header {
+  height: 500px;
+}
+#footer {
+  height:70px;
+  color: #FFFFFF;
+}
+
+#side-tab {
+  /*height: 100%;
+  width: 100%;*/
+  max-height: 50%;
+}
+
+.mainmenu, .submenu {
+  list-style-type: none;
+  padding:0;
+  margin:0;
+
+}
+
+.mainmenu a{
+  display: block;
+  background: rgba(71,67,71,0.8);
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.mainmenu a:hover {
+  background-color: rgba(197,197,197,1);
+}
+
+.mainmenu li:hover .submenu {
+  display:block;
+  max-height: 200px;
+}
+
+.submenu a {
+  background-color: #999;
+}
+
+.submenu a:hover {
+  background-color: #666;
+}
+
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  text-indent: 15px;
+  -webkit-transition: all 0.8s ease-out;
+}
+.inner-content{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  min-height: 90%;
+  /*overflow-y:  auto;*/
+}
+#game-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  margin: 1em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 90%;
+  height: 550px:
+}
+
+.table-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.game-image{
+  width:100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.game-info {
+  width:70%;
+  height:auto;
+}
+
+.game-button {
+  background: #044b7a;
+  background-image: -webkit-linear-gradient(top, #044b7a, #000000);
+  background-image: -moz-linear-gradient(top, #044b7a, #000000);
+  background-image: -ms-linear-gradient(top, #044b7a, #000000);
+  background-image: -o-linear-gradient(top, #044b7a, #000000);
+  background-image: linear-gradient(to bottom, #044b7a, #000000);
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.game-button:hover {
+  background: #8a898f;
+  background-image: -webkit-linear-gradient(top, #8a898f, #141314);
+  background-image: -moz-linear-gradient(top, #8a898f, #141314);
+  background-image: -ms-linear-gradient(top, #8a898f, #141314);
+  background-image: -o-linear-gradient(top, #8a898f, #141314);
+  background-image: linear-gradient(to bottom, #8a898f, #141314);
+  text-decoration: none;
+}
