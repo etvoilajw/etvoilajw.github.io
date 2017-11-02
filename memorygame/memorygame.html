@@ -1,54 +1,95 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
   <head>
-    <title>Memory Game</title>
+    <title>Etvoila's Gaming Station </title>
     <link href="../assets/css/memorygame.css" rel="stylesheet" type="text/css" />
   </head>
 
   <script src='tile.js'></script>
   <script src='board.js'></script>
+
   <body>
+    <div class='content'>
+      <h1>Et voila's Arcade Gaming</h1>
+      <div class='inner-content'>
+        <nav id='side-tab'>
+          <ul class="mainmenu">
 
-    <div class="content">
+            <li><a href="#">Puzzle</a>
+              <ul class="submenu">
+                <li><a href="./memorygame/memorygame.html">Memory Game</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Coming Soon!</a></li>
+            <li><a href="#">Coming Soon!</a></li>
+          </ul>
+          <footer id="footer">
+            <div id="footer-div">
+              <ul style="list-style-type:none; align-self:center; margin:0; padding:0;" >
+                <li class="sns-img">
+                  <a href="https://www.facebook.com/jaewoo.jung.92"><img src="../assets/img/facebook.png" style="border-radius: 7px;"/></a>
+                </li>
+                <li class="sns-img">
+                  <a href="https://github.com/etvoilajw"><img src="../assets/img/github.jpg" style="border-radius: 7px;"/></a>
+                </li>
+                <li class="sns-img">
+                  <a href="https://www.linkedin.com/in/jaewoo-jung-ab0780148/"><img src="../assets/img/linkedin.jpg" style="border-radius: 7px;"/></a>
+                </li>
+              </ul>
 
-      <div class='buttonContainer'>
-        <h2 style='text-align:center; align-self: center;'><strong>Select stages</strong></h2>
-        <div class = 'buttonGrid'>
-          <button class = 'stageButton' id='stage1' onclick='stageSelected(0);'>1</button>
-          <button class = 'stageButton' id='stage2' disabled onclick='stageSelected(1);'>2</button>
-          <button class = 'stageButton' id='stage3' disabled onclick='stageSelected(2);'>3</button>
+              <p style="margin:0; margin-top:5px;">Produced by Jaewoo <br />Copyright © 2017</p>
+
+            </div>
+
+          </footer>
+        </nav>
+
+
+
+        <div id='game-content'>
+
+
+          <div class = 'wrapper'>
+            <div id="header">
+              <h2><strong>Memory Game</strong></h2>
+              <p>Memorize and find all red tiles!</p>
+            </div>
+            <div id='canvasDiv'>
+              <button class='stageButton' id='inGameButton' onclick="buttonClicked();">Begin</button>
+              <canvas id='canvas' width="550" height="550">
+              </canvas>
+            </div>
+          </div>
+          <div class='buttonContainer'>
+            <h3 style='text-align:center; align-self: center; color:white;'><strong>Select stages</strong></h3>
+            <div class = 'buttonGrid'>
+              <button class = 'stageButton' id='stage1' onclick='stageSelected(0);'>1</button>
+              <button class = 'stageButton' id='stage2' disabled onclick='stageSelected(1);'>2</button>
+              <button class = 'stageButton' id='stage3' disabled onclick='stageSelected(2);'>3</button>
+              <button class = 'stageButton' id='stage4' disabled onclick='stageSelected(3);'>4</button>
+              <button class = 'stageButton' id='stage5' disabled onclick='stageSelected(4);'>5</button>
+              <button class = 'stageButton' id='stage6' disabled onclick='stageSelected(5);'>6</button>
+            </div>
+            <div class = 'buttonGrid'>
+              <button class = 'stageButton' id='stage7' disabled onclick='stageSelected(6);'>7</button>
+              <button class = 'stageButton' id='stage8' disabled onclick='stageSelected(7);'>8</button>
+              <button class = 'stageButton' id='stage9' disabled onclick='stageSelected(8);'>9</button>
+              <button class = 'stageButton' id='stage10' disabled onclick='stageSelected(9);'>10</button>
+              <button class = 'stageButton' id='stage11' disabled onclick='stageSelected(10);'>11</button>
+              <button class = 'stageButton' id='stage12' disabled onclick='stageSelected(11);'>12</button>
+            </div>
+
+          </div>
         </div>
-        <div class = 'buttonGrid'>
-          <button class = 'stageButton' id='stage4' disabled onclick='stageSelected(3);'>4</button>
-          <button class = 'stageButton' id='stage5' disabled onclick='stageSelected(4);'>5</button>
-          <button class = 'stageButton' id='stage6' disabled onclick='stageSelected(5);'>6</button>
-        </div>
-        <div class = 'buttonGrid'>
-          <button class = 'stageButton' id='stage7' disabled onclick='stageSelected(6);'>7</button>
-          <button class = 'stageButton' id='stage8' disabled onclick='stageSelected(7);'>8</button>
-          <button class = 'stageButton' id='stage9' disabled onclick='stageSelected(8);'>9</button>
-        </div>
-        <div class = 'buttonGrid'>
-          <button class = 'stageButton' id='stage10' disabled onclick='stageSelected(9);'>10</button>
-          <button class = 'stageButton' id='stage11' disabled onclick='stageSelected(10);'>11</button>
-          <button class = 'stageButton' id='stage12' disabled onclick='stageSelected(11);'>12</button>
-        </div>
+
+
 
       </div>
-      <div class = 'wrapper'>
-        <div id="header">
-          <h1><strong>Memory Game</strong></h1>
-          <p>Memorize and find all red tiles!</p>
-        </div>
-        <div id='canvasDiv'>
-          <button class='stageButton' id='inGameButton' onclick="buttonClicked();">Begin</button>
-          <canvas id='canvas' width="670" height="670">
-          </canvas>
-        </div>
-      </div>
+
     </div>
+
+
+
   </body>
-
-
   <script src='main.js'></script>
 </html>

@@ -19,6 +19,11 @@ p {
   text-align: center;
 }
 
+canvas {
+  border: 1px solid black;
+  background-color: white;
+}
+
 .content {
   position: relative;
   min-height:100%;
@@ -33,6 +38,12 @@ p {
   overflow-y: hidden;
 }
 
+.inner-content{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  min-height: 85%;
+  /*overflow-y:  auto;*/
+}
 #footer {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -46,11 +57,9 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .sns-img {
-
   float: left;
   margin-right: 10px;
   margin-left: 10px;
@@ -101,66 +110,10 @@ p {
   -webkit-transition: all 0.8s ease-out;
 }
 
-.inner-content{
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  min-height: 85%;
-  /*overflow-y:  auto;*/
-}
-
-#game-table {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 1em;
-  margin: 1em;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  max-height: 85%;
-  height: 550px:
-}
-
-.table-items {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#canvasDiv {
+  width: 550px;
+  height: 550px;
+  margin: auto;
   align-items: center;
-  text-align: center;
-}
-
-.game-image{
-  width:100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.game-info {
-  width:70%;
-  height:auto;
-}
-
-.game-button {
-  background: #044b7a;
-  background-image: -webkit-linear-gradient(top, #044b7a, #000000);
-  background-image: -moz-linear-gradient(top, #044b7a, #000000);
-  background-image: -ms-linear-gradient(top, #044b7a, #000000);
-  background-image: -o-linear-gradient(top, #044b7a, #000000);
-  background-image: linear-gradient(to bottom, #044b7a, #000000);
-  -webkit-border-radius: 10;
-  -moz-border-radius: 10;
-  border-radius: 10px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-.game-button:hover {
-  background: #8a898f;
-  background-image: -webkit-linear-gradient(top, #8a898f, #141314);
-  background-image: -moz-linear-gradient(top, #8a898f, #141314);
-  background-image: -ms-linear-gradient(top, #8a898f, #141314);
-  background-image: -o-linear-gradient(top, #8a898f, #141314);
-  background-image: linear-gradient(to bottom, #8a898f, #141314);
-  text-decoration: none;
+  justify-content: center;
 }
