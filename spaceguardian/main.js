@@ -1,9 +1,35 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+var canvasCenterX = canvas.width / 2;
+var canvasCenterY = canvas.height / 2;
 
-var c1 = new Comet(100,100,20);
-var s1 = new Spaceship(200,200,50,50);
 
-c1.draw(ctx);
-s1.draw(ctx);
+var ship = new Spaceship(canvasCenterX - 20,canvasCenterY - 20,20,20);
+
+for(var i=0; i< 10; i++) {
+  if(Math.random() > 0.5) {
+    if(Math.random() > 0.5) {
+      new Comet(0,Math.random() * canvas.height,5);
+    }
+    else {
+      new Comet(canvas.width,Math.random() * canvas.height,5);
+    }
+  }
+  else {
+    if(Math.random() > 0.5) {
+      new Comet(Math.random() * canvas.width,0,5);
+    }
+    else {
+      new Comet(Math.random() * canvas.width,canvas.height,5);
+    }
+  }
+}
+
+setInterval(function() {
+  ctx.clearRect(0,0,canvas.width, canvas.height);
+  ship.draw(ctx);
+  for(var i in comets) {
+    comets[i].draw(ctx);
+  }
+}, 10);
