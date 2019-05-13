@@ -19,6 +19,7 @@ Spaceship = function(x,y,w,h) {
     if(keyState[left]) this.x -= this.vx;
     if(keyState[right]) this.x += this.vx;
     this.collisionDetect();
+    console.log(gameOver);
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x,this.y,this.w,this.h);
   };
