@@ -39,7 +39,7 @@ setInterval(function() {
   }
 }, 300);
 
-if(!gameOver) {
+while (!gameOver) {
   setInterval(function() {
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ship.draw(ctx);
