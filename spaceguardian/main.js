@@ -39,12 +39,12 @@ setInterval(function() {
   }
 }, 300);
 
-setInterval(function() {
-  if(!gameOver) {
+if(!gameOver) {
+  setInterval(function() {
     ctx.clearRect(0,0,canvas.width, canvas.height);
     ship.draw(ctx);
     for(var i in comets) {
       comets[i].draw(ctx);
     }
-  }
-}, 10);
+  }, 10)
+};
