@@ -6,6 +6,7 @@ import classes from "../css/board.module.css";
 const Board = ({ row, col, selectedNum }) => {
   const [boardArray, setBoardArray] = useState([[]]);
   const [selectedArray, setSelectedArray] = useState([]);
+  const [clickedArray, setClickedArray] = useState([]);
 
   const rows = [...Array(row).keys()];
   const cols = [...Array(col).keys()];
@@ -19,13 +20,18 @@ const Board = ({ row, col, selectedNum }) => {
     chooseSelected();
   }, [boardArray]);
 
+  //check if game is won after each tile has been revealed
+  useEffect(() => {
+    gameWon();
+  }, [clickedArray]);
+
   //initialize the board as list
   //list = [col, row], eg for 2x2: [[0,0], [0,1], [1,0], [1,1]]
   const makeBoard = () => {
     let board = [];
     for (let i = 0; i < row; i++) {
       for (let j = 0; j < col; j++) {
-        board.push([i, j, false]);
+        board.push([i, j]);
       }
     }
     setBoardArray(board);
@@ -47,8 +53,23 @@ const Board = ({ row, col, selectedNum }) => {
     return filtered.length > 0;
   };
 
+  //gameover if wrong tile has been clicked
   const gameOver = () => {
     alert("gameover");
+  };
+
+  //check if all selected tile has been revealed
+  const gameWon = () => {
+    if (clickedArray.length === selectedNum) {
+      alert("You won");
+    }
+  };
+
+  //add correctly revealed tile to clicked array
+  const tileClicked = (id) => {
+    if (!clickedArray.includes(id)) {
+      setClickedArray(() => [...clickedArray, id]);
+    }
   };
 
   const board = (
@@ -57,8 +78,11 @@ const Board = ({ row, col, selectedNum }) => {
         <div className={classes.row}>
           {cols.map((colIndex) => (
             <Tile
+              key={`${rowIndex},${colIndex}`}
+              id={`${rowIndex},${colIndex}`}
               selected={checkSelected(rowIndex, colIndex)}
               gameOver={gameOver}
+              tileClicked={tileClicked}
             />
           ))}
         </div>

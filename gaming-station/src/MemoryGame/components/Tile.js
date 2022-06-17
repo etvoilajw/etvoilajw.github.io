@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "../css/tile.module.css";
 
-const Tile = ({ selected, gameOver }) => {
-  const [isClicked, setIsClicked] = useState(false);
+const Tile = ({ id, selected, tileClicked, gameOver }) => {
+  const [tileColour, setTileColour] = useState(classes.selected);
 
-  //style prop for tile if this tile is selected
-  const tileColour = selected && classes.selected;
+  //initially show selected tiles for 2 seconds and disappear
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setTileColour("");
+    }, 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
-  //change isClicked to true if selected i.e correct
+  //change tile colour when clicked if is selected i.e correct
   //else gameOver
   const clickHandler = () => {
     if (selected) {
-      setIsClicked(true);
+      setTileColour(classes.selected);
+      tileClicked(id);
     } else {
       gameOver();
     }
@@ -19,7 +25,7 @@ const Tile = ({ selected, gameOver }) => {
 
   return (
     <div
-      className={`${classes.tile} ${isClicked && tileColour}`}
+      className={`${classes.tile} ${selected ? tileColour : ""}`}
       onClick={clickHandler}
     ></div>
   );
