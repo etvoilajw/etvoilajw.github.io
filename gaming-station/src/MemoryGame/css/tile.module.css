@@ -8,3 +8,7 @@
 .tile.selected {
   background-color: red;
 }
+
+div[disabled] {
+  pointer-events: none;
+}

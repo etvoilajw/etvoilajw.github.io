@@ -3,17 +3,18 @@ import { useEffect, useState } from "react";
 import Tile from "./Tile";
 import classes from "../css/board.module.css";
 
-const Board = ({ row, col, selectedNum }) => {
+const Board = ({ row, col, selectedNum, reset }) => {
   const [boardArray, setBoardArray] = useState([[]]);
   const [selectedArray, setSelectedArray] = useState([]);
   const [clickedArray, setClickedArray] = useState([]);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const rows = [...Array(row).keys()];
   const cols = [...Array(col).keys()];
 
   useEffect(() => {
     makeBoard();
-  }, []);
+  }, [reset]);
 
   //updating selected array once boardarray state changes
   useEffect(() => {
@@ -22,7 +23,9 @@ const Board = ({ row, col, selectedNum }) => {
 
   //check if game is won after each tile has been revealed
   useEffect(() => {
-    gameWon();
+    if (clickedArray.length === selectedNum) {
+      gameWon();
+    }
   }, [clickedArray]);
 
   //initialize the board as list
@@ -41,7 +44,7 @@ const Board = ({ row, col, selectedNum }) => {
   //needed to have non duplicate random selection
   const chooseSelected = () => {
     setSelectedArray(() =>
-      [...boardArray].sort(() => 0.5 - Math.random()).slice(0, selectedNum)
+      boardArray.sort(() => 0.5 - Math.random()).slice(0, selectedNum)
     );
   };
 
@@ -55,13 +58,15 @@ const Board = ({ row, col, selectedNum }) => {
 
   //gameover if wrong tile has been clicked
   const gameOver = () => {
+    setIsDisabled(true);
     alert("gameover");
   };
 
   //check if all selected tile has been revealed
   const gameWon = () => {
+    setIsDisabled(true);
     if (clickedArray.length === selectedNum) {
-      alert("You won");
+      alert("you won");
     }
   };
 
@@ -73,7 +78,7 @@ const Board = ({ row, col, selectedNum }) => {
   };
 
   const board = (
-    <div className={classes.board}>
+    <div className={classes.board} disabled={isDisabled}>
       {rows.map((rowIndex) => (
         <div className={classes.row}>
           {cols.map((colIndex) => (
@@ -83,6 +88,7 @@ const Board = ({ row, col, selectedNum }) => {
               selected={checkSelected(rowIndex, colIndex)}
               gameOver={gameOver}
               tileClicked={tileClicked}
+              reset={reset}
             />
           ))}
         </div>
