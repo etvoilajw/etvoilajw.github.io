@@ -8,6 +8,7 @@ const Tile = ({ id, selected, tileClicked, gameOver, reset }) => {
   //initially show selected tiles for 2 seconds and disappear
   useEffect(() => {
     setTileColour(classes.selected);
+    setIsDisabled(false);
     const timer = setTimeout(() => {
       setTileColour("");
     }, 2000);

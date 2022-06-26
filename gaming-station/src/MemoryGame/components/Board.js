@@ -14,6 +14,8 @@ const Board = ({ row, col, selectedNum, reset }) => {
 
   useEffect(() => {
     makeBoard();
+    setIsDisabled(false);
+    setClickedArray([]);
   }, [reset]);
 
   //updating selected array once boardarray state changes
