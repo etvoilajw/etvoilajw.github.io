@@ -1,0 +1,15 @@
+.board {
+  display: grid;
+  border: 1px solid black;
+  width: 500px;
+  height: 500px;
+}
+
+.row {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+div[disabled] {
+  pointer-events: none;
+}
