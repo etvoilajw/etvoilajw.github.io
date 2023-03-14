@@ -15,7 +15,7 @@ const TimeStamp = ({ setStartTime, setEndTime, onSubmit }) => {
   return (
     <>
       <div>
-        <label for={"Start"}>Start</label>
+        <label htmlFor={"Start"}>Start</label>
         <Select
           name={"hours"}
           value={selectedStartHour}
@@ -39,7 +39,7 @@ const TimeStamp = ({ setStartTime, setEndTime, onSubmit }) => {
       </div>
 
       <div>
-        <label for={"End"}>End</label>
+        <label htmlFor={"End"}>End</label>
         <Select
           name={"hours"}
           value={selectedEndHour}

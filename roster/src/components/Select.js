@@ -1,12 +1,7 @@
-const Select = ({ name, value, setMethod, options }) => {
+const Select = ({ name, value, onChange, options }) => {
   return (
     <div>
-      <label for={"name"}>{name}</label>
-      <select
-        name={name}
-        value={value}
-        onChange={(e) => setMethod(e.target.value)}
-      >
+      <select name={name} value={value} onChange={onChange}>
         <option disabled={true} value={""}>
           Please select {name}
         </option>
