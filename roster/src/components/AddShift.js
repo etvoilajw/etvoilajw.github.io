@@ -30,7 +30,10 @@ const AddShift = ({ staffs, setRoster }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     const { staff, ...roster } = inputShift;
-    setRoster((prev) => ({ ...prev, [staff]: roster }));
+    setRoster((prev) => ({
+      ...prev,
+      [staff]: { ...prev[staff], [inputShift.day]: roster },
+    }));
     setInputShift({
       staff: "",
       day: "",
