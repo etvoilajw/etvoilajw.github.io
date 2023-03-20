@@ -1,7 +1,7 @@
 const Select = ({ name, value, onChange, options }) => {
   return (
     <div>
-      <select name={name} value={value} onChange={onChange}>
+      <select name={name} value={value} onChange={onChange} required>
         <option disabled={true} value={""}>
           Please select {name}
         </option>
