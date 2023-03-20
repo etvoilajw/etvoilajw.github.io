@@ -38,9 +38,9 @@ const StaffList = ({ roster }) => {
               key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell key={index} component="th" scope="row">
-                {staff.name}
-              </TableCell>
+              <TableHead key={index} component="th" scope="row">
+                {staff}
+              </TableHead>
               {Object.entries(shifts).map(([day, shift], index) => (
                 <TableCell key={index} align="right">
                   <StaffShift shift={shift} />
