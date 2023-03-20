@@ -1,11 +1,15 @@
 import { useState } from "react";
 
-const AddStaff = ({ setStaffs }) => {
+const AddStaff = ({ staffs, setStaffs }) => {
   const [fullName, setFullName] = useState("");
 
   const addStaff = (e) => {
     e.preventDefault();
     if (fullName === "") {
+      return;
+    }
+    if (staffs.includes(fullName)) {
+      alert("Staff already exists");
       return;
     }
     setStaffs((current) => [...current, fullName]);
@@ -20,6 +24,7 @@ const AddStaff = ({ setStaffs }) => {
         value={fullName}
         onChange={(e) => setFullName(e.target.value)}
         placeholder={"Enter full name"}
+        required
       ></input>
       <button type="submit">Add Staff</button>
     </form>
