@@ -1,3 +1,5 @@
+import moment from "moment";
+
 const StaffShift = (shift) => {
   const {
     workType,
@@ -9,12 +11,23 @@ const StaffShift = (shift) => {
     endAMPM,
   } = Object.values(shift)[0];
 
-  const startTime = startHours + ":" + startMinutes + startAMPM;
-  const endTime = endHours + ":" + endMinutes + endAMPM;
+  const startTime = startHours + startMinutes + startAMPM.toLowerCase();
+  const endTime = endHours + endMinutes + endAMPM.toLowerCase();
+  const formattedStartTime = moment(startTime, "hmm a").format("hh:mm a");
+  const formattedEndTime = moment(endTime, "hmm a").format("hh:mm a");
+  const duration = moment(endTime, "hmm a").diff(
+    moment(startTime, "hmm a"),
+    "hours",
+    true
+  );
+
   return (
-    <p>
-      {startTime} - {endTime}
-    </p>
+    <div>
+      <p>
+        {formattedStartTime} - {formattedEndTime}
+      </p>
+      <p>{duration} hours</p>
+    </div>
   );
 };
 
