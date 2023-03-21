@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import StaffShift from "./StaffShift";
+import StaffTableRow from "./StaffTableRow";
 
 const StaffList = ({ roster }) => {
   const tableRow = [
@@ -19,6 +20,8 @@ const StaffList = ({ roster }) => {
     "Saturday",
     "Sunday",
   ];
+
+  console.log(roster);
 
   return (
     <TableContainer component={Paper}>
@@ -33,21 +36,12 @@ const StaffList = ({ roster }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Object.entries(roster).map(([staff, shifts], index) => (
-            <TableRow
-              key={index}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableHead key={index} component="th" scope="row">
-                {staff}
-              </TableHead>
-              {Object.entries(shifts).map(([day, shift], index) => (
-                <TableCell key={index} align="right">
-                  <StaffShift shift={shift} />
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
+          {Object.entries(roster).map(
+            ([staff, shifts], index) =>
+              shifts && (
+                <StaffTableRow staff={staff} shifts={shifts} index={index} />
+              )
+          )}
         </TableBody>
       </Table>
     </TableContainer>
