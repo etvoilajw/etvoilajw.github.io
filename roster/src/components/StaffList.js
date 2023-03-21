@@ -21,15 +21,13 @@ const StaffList = ({ roster }) => {
     "Sunday",
   ];
 
-  console.log(roster);
-
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             {tableRow.map((row, index) => (
-              <TableCell key={index} align="right">
+              <TableCell key={index} align="center">
                 {row}
               </TableCell>
             ))}
