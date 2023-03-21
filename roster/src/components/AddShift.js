@@ -1,3 +1,4 @@
+import moment from "moment";
 import { useState } from "react";
 import Select from "./Select";
 
@@ -30,6 +31,20 @@ const AddShift = ({ roster, setRoster }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     const { staff, ...shift } = inputShift;
+    console.log(inputShift);
+    if (
+      !validateTimeHandler(
+        inputShift.startHours,
+        inputShift.startMinutes,
+        inputShift.startAMPM,
+        inputShift.endHours,
+        inputShift.endMinutes,
+        inputShift.endAMPM
+      )
+    ) {
+      alert("Start time is later than the end time");
+      return;
+    }
     setRoster((prev) => ({
       ...prev,
       [staff]: { ...prev[staff], [inputShift.day]: shift },
@@ -45,6 +60,26 @@ const AddShift = ({ roster, setRoster }) => {
       endMinutes: "",
       endAMPM: "",
     });
+  };
+
+  const validateTimeHandler = (
+    startHours,
+    startMinutes,
+    startAMPM,
+    endHours,
+    endMinutes,
+    endAMPM
+  ) => {
+    const startTime = startHours + startMinutes + startAMPM.toLowerCase();
+    const endTime = endHours + endMinutes + endAMPM.toLowerCase();
+
+    return (
+      moment(endTime, "hmm a").diff(
+        moment(startTime, "hmm a"),
+        "hours",
+        true
+      ) >= 0
+    );
   };
 
   const onSelectHandler = (event) => {
