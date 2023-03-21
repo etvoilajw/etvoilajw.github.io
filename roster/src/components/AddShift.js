@@ -12,7 +12,7 @@ const DAYS = [
 ];
 const WORKTYPES = ["Work", "Sick", "Annual Leave"];
 const HOURS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-const MINUTES = ["00", "05", 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
+const MINUTES = ["00", 15, 30, 45];
 
 const AddShift = ({ roster, setRoster }) => {
   const [inputShift, setInputShift] = useState({
