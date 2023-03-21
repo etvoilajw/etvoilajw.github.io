@@ -1,18 +1,47 @@
 import { useState } from "react";
 
-const AddStaff = ({ staffs, setStaffs }) => {
+const AddStaff = ({ roster, setRoster }) => {
   const [fullName, setFullName] = useState("");
+
+  const DAYS = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thurdsay",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
+
+  const defaultShift = DAYS.reduce(
+    (days, value) => ({
+      ...days,
+      [value]: {
+        workType: "",
+        startHours: "",
+        startMinutes: "",
+        startAMPM: "",
+        endHours: "",
+        endMinutes: "",
+        endAMPM: "",
+      },
+    }),
+    {}
+  );
 
   const addStaff = (e) => {
     e.preventDefault();
     if (fullName === "") {
       return;
     }
-    if (staffs.includes(fullName)) {
+    if (Object.keys(roster).includes(fullName)) {
       alert("Staff already exists");
       return;
     }
-    setStaffs((current) => [...current, fullName]);
+    setRoster((prev) => ({
+      ...prev,
+      [fullName]: defaultShift,
+    }));
     setFullName("");
   };
 

@@ -9,8 +9,8 @@ const App = () => {
 
   return (
     <div>
-      <AddStaff staffs={staffs} setStaffs={setStaffs} />
-      <AddShift staffs={staffs} setRoster={setRoster} />
+      <AddStaff roster={roster} setRoster={setRoster} />
+      <AddShift roster={roster} setRoster={setRoster} />
       <StaffList roster={roster} />
     </div>
   );

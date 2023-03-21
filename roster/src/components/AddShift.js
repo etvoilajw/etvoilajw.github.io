@@ -14,7 +14,7 @@ const WORKTYPES = ["Work", "Sick", "Annual Leave"];
 const HOURS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const MINUTES = ["00", "05", 10, 15, 20, 25, 30, 35, 40, 45, 50, 55];
 
-const AddShift = ({ staffs, setRoster }) => {
+const AddShift = ({ roster, setRoster }) => {
   const [inputShift, setInputShift] = useState({
     staff: "",
     day: "",
@@ -29,10 +29,10 @@ const AddShift = ({ staffs, setRoster }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const { staff, ...roster } = inputShift;
+    const { staff, ...shift } = inputShift;
     setRoster((prev) => ({
       ...prev,
-      [staff]: { ...prev[staff], [inputShift.day]: roster },
+      [staff]: { ...prev[staff], [inputShift.day]: shift },
     }));
     setInputShift({
       staff: "",
@@ -59,7 +59,7 @@ const AddShift = ({ staffs, setRoster }) => {
         name={"staff"}
         value={inputShift.staff}
         onChange={onSelectHandler}
-        options={staffs}
+        options={Object.keys(roster)}
       ></Select>
 
       <label htmlFor="day">Day</label>
